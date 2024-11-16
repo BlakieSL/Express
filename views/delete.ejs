@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Delete</title>
+</head>
+<body>
+<h1>Confirm Deletion</h1>
+<p>Are you sure you want to delete the employee: <strong><%= employee.name %></strong>?</p>
+<p>Category: <%= employee.category_name %></p>
+<p>Address: <%= employee.address %></p>
+<p>Birthdate: <%= employee.birthdate %></p>
+
+<form action="/employees/<%= employee.id %>?_method=DELETE" method="POST">
+    <button type="submit">Yes, Delete</button>
+</form>
+<a href="/employees">Cancel</a>
+</body>
+</html>

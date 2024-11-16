@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Employee</title>
+</head>
+<body>
+<h1>Update Employee</h1>
+
+<form action="/employees/<%= employee.id %>?_method=PUT" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="<%= employee.name %>" required>
+    </div>
+    <div>
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" value="<%= employee.birthdate %>" required>
+    </div>
+    <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="<%= employee.address %>" required>
+    </div>
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" name="category_id" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>" <%= category.id === employee.category_id ? 'selected' : '' %> >
+                    <%= category.name %>
+                </option>
+            <% }) %>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Update Employee</button>
+    </div>
+</form>
+
+<a href="/employees">Back to Employee List</a>
+</body>
+</html>

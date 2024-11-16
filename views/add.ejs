@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Employee</title>
+</head>
+<body>
+<h1>Add New Employee</h1>
+
+<form action="/employees" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+    </div>
+    <div>
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate" required>
+    </div>
+    <div>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+    </div>
+    <div>
+        <label for="category">Category:</label>
+        <select id="category" name="category_id" required>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Add Employee</button>
+    </div>
+</form>
+
+<a href="/employees">Back to Employee List</a>
+</body>
+</html>

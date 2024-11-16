@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+</head>
+<body>
+<h1>Employee List</h1>
+
+<a href="/actions/add">
+    <button type="button">Add New Employee</button>
+</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>Category</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% employees.forEach(employee => { %>
+        <tr>
+            <td><%= employee.id %></td>
+            <td><%= employee.name %></td>
+            <td><%= employee.birthdate %></td>
+            <td><%= employee.address %></td>
+            <td><%= employee.category_id %>, <%= employee.category_name %></td>
+            <td>
+                <a href="/actions/update/<%= employee.id %>">
+                    <button type="button">Update</button>
+                </a>
+
+                <a href="/actions/delete/<%= employee.id %>">
+                    <button type="button" style="background-color: red; color: white;">Delete</button>
+                </a>
+            </td>
+        </tr>
+    <% }) %>
+    </tbody>
+</table>
+
+</body>
+</html>
