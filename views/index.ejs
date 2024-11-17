@@ -3,47 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee List</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>Employees</title>
 </head>
 <body>
-<h1>Employee List</h1>
+<div class="mainHeader">
+    <h1>Employees</h1>
+    <button type="button" class="addButton">Add New Employee</button>
+</div>
 
-<a href="/actions/add">
-    <button type="button">Add New Employee</button>
-</a>
-
-<table>
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Birthdate</th>
-        <th>Address</th>
-        <th>Category</th>
-        <th>Actions</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% employees.forEach(employee => { %>
+<div class="mainContainer">
+    <table>
+        <thead>
         <tr>
-            <td><%= employee.id %></td>
-            <td><%= employee.name %></td>
-            <td><%= employee.birthdate %></td>
-            <td><%= employee.address %></td>
-            <td><%= employee.category_id %>, <%= employee.category_name %></td>
-            <td>
-                <a href="/actions/update/<%= employee.id %>">
-                    <button type="button">Update</button>
-                </a>
-
-                <a href="/actions/delete/<%= employee.id %>">
-                    <button type="button" style="background-color: red; color: white;">Delete</button>
-                </a>
-            </td>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Birthdate</th>
+            <th>Address</th>
+            <th>Category</th>
+            <th colspan="2">Actions</th>
         </tr>
-    <% }) %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+        <% employees.forEach(employee => { %>
+            <tr>
+                <td><%= employee.id %></td>
+                <td><%= employee.name %></td>
+                <td><%= employee.birthdate %></td>
+                <td><%= employee.address %></td>
+                <td><%= employee.category_id %>, <%= employee.category_name %></td>
+                <td>
+                    <button type="button" class="updateButton">Update</button>
+                </td>
+                <td>
+                    <button type="button" class="deleteButton">Delete</button>
+                </td>
+            </tr>
+        <% }) %>
+        </tbody>
+    </table>
+</div>
 
+<script src="/script.js"></script>
 </body>
 </html>
